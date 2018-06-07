@@ -16,7 +16,11 @@ EosioPy requires to run python3.6+.
 ```sh
 $ pip instll eosiopy
 ```
+**Any questions pls join our official Telegram Group below/相关问题反馈，请加Telegram群组:**
 
+&emsp;Telegram 群：https://t.me/joinchat/IAxvKRB5r4R5ovBdpIeYgQ
+
+&emsp;Telegram GROUP：https://t.me/joinchat/IAxvKRB5r4R5ovBdpIeYgQ
 
 ### Simple to use/简单使用
 你可以执行任何eosio支持的合约[eosio官方文档](https://eosio.github.io/eos/group__contractdev.html)
