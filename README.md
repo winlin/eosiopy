@@ -1,6 +1,6 @@
 # About/关于
 
-**EosioPy** is a python EOS tool,which is developed by  Gao jinfeng
+**EosioPy** is a python EOS tool,which is developed by EosMoto
 
 **EosioPy**是一个python eos工具集合。
 
