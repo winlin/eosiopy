@@ -1,9 +1,11 @@
-import hashlib
 import ctypes
+import hashlib
 from ctypes import *
-import pkg_resources
-from eosiopy.exception import CantFindRecId
+
 import base58
+import pkg_resources
+
+from eosiopy.exception import CantFindRecId
 from eosiopy.exception import IllegalKey
 
 
@@ -23,8 +25,12 @@ def sign(wfi, trx):
     trx = sha.digest()
     pri = bytes(pri)
     ll = ctypes.cdll.LoadLibrary
-    libpycall = pkg_resources.resource_filename("libpycall.so")
-    lib = ll(libpycall)
+    try:
+        libuecc = pkg_resources.resource_filename("uECC")
+    except:
+        libuecc = './uECC.so'
+
+    libuecc = ll(libuecc)
     c_uint_array = c_uint8 * 64
     c_uint_array32 = c_uint8 * 32
     signature = c_uint_array(0)
@@ -34,7 +40,7 @@ def sign(wfi, trx):
         c_trx[i] = trx[i]
         c_pri[i] = pri[i]
 
-    recId = lib.uECC_sign_forbc(c_pri, c_trx, signature)
+    recId = libuecc.uECC_sign_forbc(c_pri, c_trx, signature)
     if recId == -1:
         raise CantFindRecId
     bin = bytearray()
@@ -53,12 +59,14 @@ def sign(wfi, trx):
             c_temp[i] = temp[i]
         except:
             print("ddd")
-
-    libpycall2 = pkg_resources.resource_filename("libpycallrmd2.so")
-    lib2 = ll(libpycall2)
+    try:
+        librmd160 = pkg_resources.resource_filename("rmd160")
+    except:
+        librmd160 = './rmd160.so'
+    librmd160 = ll(librmd160)
     c_uint_array20 = c_uint8 * 20
     p = c_uint_array(0)
-    rmdhash = lib2.RMD(c_temp, 67, p)
+    rmdhash = librmd160.RMD(c_temp, 67, p)
 
     bin.extend(p[0:19])
     sig = str(base58.b58encode(bytes(bin)))[2:-1]

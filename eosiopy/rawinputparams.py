@@ -45,5 +45,5 @@ if __name__ == "__main__":
         "quantity": "20.0000 EOS",
         "to": "eosio"
     }, "eosio.token", "eosio.token@active")
-    EosioParams(raw,)
+    EosioParams(raw.eos_params)
     print(raw.eos_params)

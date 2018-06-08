@@ -1,4 +1,5 @@
 from setuptools import setup
+
 from eosiopy import VERSION
 
 setup(
@@ -11,9 +12,9 @@ setup(
     license='GPL-3.0',
     packages=['eosiopy'],
 
-    install_requires=('requests','base58'),
+    install_requires=('requests', 'base58'),
     zip_safe=False,
-    keywords=['eos', 'eosio', 'eosiopy', 'eospython','pythoneos','python eos','eos python'],
+    keywords=['eos', 'eosio', 'eosiopy', 'eospython', 'pythoneos', 'python eos', 'eos python'],
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',

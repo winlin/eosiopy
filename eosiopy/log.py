@@ -2,7 +2,8 @@ import logging
 
 import sys
 
-def getLogger(name=None,filename=None):
+
+def getLogger(name=None, filename=None):
     formatter = logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s')
     logger = logging.getLogger(name)
     sh = logging.StreamHandler(sys.stdout)

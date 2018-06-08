@@ -132,7 +132,7 @@ void MDfinish(dword *MDbuf, byte *strptr, dword lswlen, dword mswlen);
  */
 
 
-byte *RMD(byte *message , int msglen);
+void RMD(byte *message , int msglen,unsigned char hash[20]);
 #endif  /* RMD160H */
 
 /*********************** end of file rmd160.h ***********************/

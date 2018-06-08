@@ -1,21 +1,21 @@
-from eosiopy.utils import type_name_to_long, json2obj
+from eosiopy.utils import type_name_to_long
 
 
 class PackedTransaction(object):
     bytes_list = bytearray()
 
-    def __init__(self, eosio_params,chain_id):
-        self.chain_id=chain_id
-        params=eosio_params
+    def __init__(self, eosio_params, chain_id):
+        self.chain_id = chain_id
+        params = eosio_params
         self.push_int(params["expiration"] & 0xFFFFFFFF)
         self.push_short(params["ref_block_num"] & 0xFFFF)
         self.push_int(params["ref_block_prefix"] & 0xFFFFFFFF)
         self.push_variableUInt(params["max_net_usage_words"])
         self.push_variableUInt(params["max_kcpu_usage"])
         self.push_variableUInt(params["delay_sec"])
-        self.push_actiones(list())#TODO packfreedata
+        self.push_actiones(list())  # TODO packfreedata
         self.push_actiones(params["transaction"]["actions"])
-        self.push_variableUInt(0)#TODO packexdata
+        self.push_variableUInt(0)  # TODO packexdata
 
     def push_base(self, val, iteration):
         for i in iteration:
@@ -69,8 +69,9 @@ class PackedTransaction(object):
 
     def push_transaction_extensions(self, val_list):
         self.push_variableUInt(len(val_list))
+
     def get_digest_signature(self):
-        byte_array=bytearray.fromhex(self.chain_id)
+        byte_array = bytearray.fromhex(self.chain_id)
         byte_array.extend(self.bytes_list)
         free_array = bytearray([0 for n in range(32)])
         byte_array.extend(free_array)

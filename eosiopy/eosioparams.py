@@ -1,8 +1,9 @@
+import json
 import time
+
 from eosiopy.nodenetwork import NodeNetwork
 from eosiopy.packedtransaction import PackedTransaction
 from eosiopy.sign import sign
-import json
 
 
 class EosioParams(object):

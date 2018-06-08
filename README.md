@@ -33,7 +33,7 @@ from eosiopy.nodenetwork import NodeNetwork
 from eosiopy.rawinputparams import RawinputParams
 raw = RawinputParams("transfer", {
         "from": "eosio.token",
-        "memo": "dd",
+        "memo": "eosmoto",
         "quantity": "20.0000 EOS",
         "to": "eosio"
     }, "eosio.token", "eosio.token@active")

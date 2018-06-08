@@ -1,9 +1,11 @@
-import hashlib
 import ctypes
+import hashlib
 from ctypes import *
-import pkg_resources
-from eosiopy.exception import CantFindRecId
+
 import base58
+import pkg_resources
+
+from eosiopy.exception import CantFindRecId
 from eosiopy.exception import IllegalKey
 
 
