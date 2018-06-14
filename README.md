@@ -14,7 +14,7 @@ EosioPy requires to run python3.6+.
 
 
 ```sh
-$ pip instll eosiopy
+$ pip install eosiopy
 ```
 **Any questions pls join our official Telegram Group below/相关问题反馈，请加Telegram群组:**
 
