@@ -20,7 +20,7 @@ parts/
 sdist/
 var/
 wheels/
-eosiopy.egg-info/
+eosiopy.egg-inf
 *.egg-info/
 .installed.cfg
 *.egg

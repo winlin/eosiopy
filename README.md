@@ -38,16 +38,29 @@ raw = RawinputParams("transfer", {
         "to": "eosio"
     }, "eosio.token", "eosio.token@active")
 
-eosiop_arams=EosioParams(raw.eos_params,"5K7vdq9bEpTGZMryrc4LwcxeHAwMcrFuwskVujujpAfBoJwAo82")
+eosiop_arams=EosioParams(raw.params_actions_list,"5K7vdq9bEpTGZMryrc4LwcxeHAwMcrFuwskVujujpAfBoJwAo82")
 net=NodeNetwork.push_transaction(eosiop_arams.trx_json)
 print(net)
 ```
-
+### also can Chain calls/链式调用
+```python
+raw = RawinputParams("transfer", {
+        "from": "eosio.token",
+        "memo": "eosmoto",
+        "quantity": "20.0000 EOS",
+        "to": "eosio"
+    }, "eosio.token", "eosio.token@active")
+```
 
 ### Change config/更改默认配置
 
 You can change the default node address before sending the request (default is 127.0.0.1:8888)
 
+```python
+from eosiopy import eosio_config
+eosio_config.url="http://127.0.0.1"
+eosio_config.port=8888
+```
 你可以在发送请求之前更改默认的节点地址(默认是 127.0.0.1:8888)
 
 ### Use the advanced/进阶使用

@@ -7,14 +7,14 @@ from eosiopy.sign import sign
 
 
 class EosioParams(object):
-    def __init__(self, params_dict, wif=None):
+    def __init__(self, params_actions_list, wif=None):
         self.get_info_block()
         self.params = dict()
 
-        actions = list()
-        actions.append(params_dict)
+        # actions = list()
+        # actions.append(params_dict)
         tmp_dict = dict()
-        tmp_dict["actions"] = actions
+        tmp_dict["actions"] = params_actions_list
 
         self.params.setdefault("transaction", tmp_dict)
         self.params.setdefault("ref_block_num", self.info_block["last_irreversible_block_num"])
