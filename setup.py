@@ -1,14 +1,27 @@
+# -*- coding: utf-8 -*-
+
 from setuptools import setup
 
 from eosiopy import VERSION
+import sys
+from os.path import join, dirname
+from setuptools import setup, find_packages
 
+VERSION = (0, 0, 5)
+__version__ = VERSION
+__versionstr__ = '.'.join(map(str, VERSION))
+
+f = open( 'README.md',"r")
+long_description = f.read().strip()
+f.close()
 setup(
     name='eosiopy',
-    version=VERSION,
+    version=__versionstr__,
     description='Python library of the EOS.IO project.',
-    long_description='Python library of the EOS.IO project..',
+    long_description=long_description,
     url='https://github.com/eosmoto/eosiopy',
     author='eosmoto',
+    author_email = "eosmoto@163.com",
     license='GPL-3.0',
     packages=['eosiopy'],
 
