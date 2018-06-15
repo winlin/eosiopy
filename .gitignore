@@ -103,5 +103,5 @@ venv.bak/
 *.pyc
 # mypy
 .mypy_cache/
-build/
-eosiopy.egg-info/
+/build
+/eosiopy.egg-info
