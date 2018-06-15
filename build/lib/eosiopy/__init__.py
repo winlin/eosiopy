@@ -4,7 +4,7 @@ from .nodenetwork import NodeNetwork
 from .rawinputparams import RawinputParams
 from .sign import sign
 
-VERSION = '0.0.3'
+VERSION = '0.0.4'
 
 __all__ = ['VERSION', 'config', 'eosioparams', 'nodenetwork', 'packedtransaction',
            'rawinputparams', 'sign', 'utils']

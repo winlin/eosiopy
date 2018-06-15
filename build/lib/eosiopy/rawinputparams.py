@@ -5,37 +5,42 @@ from eosiopy.nodenetwork import NodeNetwork
 
 class RawinputParams(object):
 
-    def __init__(self, action, args, code, authorization):
-        self.params = dict()
-        self.raw_params = dict()
-        self.raw_params["action"] = action
-        self.raw_params["args"] = args
-        self.raw_params["code"] = code
-        self.authorization = authorization
+    def __init__(self, action=None, args=None, code=None, authorization=None):
+        self.params_actions_list = list()
+        if action and args and code and authorization:
+            self.add(action, args, code, authorization)
 
-    def get_bin(self, json_data):
-        return NodeNetwork.json_to_abi(json_data=json_data)["binargs"]
+    def add(self, action, args, code, authorization):
+        raw_params = dict()
+        raw_params["action"] = action
+        raw_params["args"] = args
+        raw_params["code"] = code
 
-    @property
-    def eos_params(self):
         try:
-
-            actor = self.authorization.split("@")[0]
-            permission = self.authorization.split("@")[1]
+            actor = authorization.split("@")[0]
+            permission = authorization.split("@")[1]
         except:
             raise ErrInputParams()
-        action = {
-            "account": self.raw_params["code"],
+        _action_obj = {
+            "account": code,
             "authorization": [
                 {
                     "actor": actor,
                     "permission": permission
                 }
             ],
-            "data": self.get_bin(self.raw_params),
-            "name": self.raw_params["action"]
+            "data": self.get_bin(raw_params),
+            "name": action
         }
-        return action
+        self.params_actions_list.append(_action_obj)
+        return self
+
+    def get_bin(self, json_data):
+        return NodeNetwork.json_to_abi(json_data=json_data)["binargs"]
+
+
+
+
 
 
 if __name__ == "__main__":
@@ -45,5 +50,5 @@ if __name__ == "__main__":
         "quantity": "20.0000 EOS",
         "to": "eosio"
     }, "eosio.token", "eosio.token@active")
-    EosioParams(raw.eos_params)
-    print(raw.eos_params)
+    param = EosioParams(raw.params_actions_list)
+    print(raw.params_actions_list)
