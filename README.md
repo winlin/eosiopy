@@ -50,6 +50,13 @@ raw = RawinputParams("transfer", {
         "quantity": "20.0000 EOS",
         "to": "eosio"
     }, "eosio.token", "eosio.token@active")
+
+raw.add("transfer", {
+        "from": "eosio.token",
+        "memo": "eosmoto",
+        "quantity": "2.0000 EOS",
+        "to": "eosio"
+    }, "eosio.token", "eosio.token@active")
 ```
 
 ### Change config/更改默认配置
