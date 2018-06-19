@@ -57,6 +57,7 @@ raw.add("transfer", {
         "quantity": "2.0000 EOS",
         "to": "eosio"
     }, "eosio.token", "eosio.token@active")
+
 ```
 
 ### Change config/更改默认配置
