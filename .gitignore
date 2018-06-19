@@ -106,3 +106,4 @@ venv.bak/
 /build
 /eosiopy.egg-info
 /.idea
+__pycache__/
