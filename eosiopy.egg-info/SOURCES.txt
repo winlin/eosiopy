@@ -1,3 +1,4 @@
+HISTORY.md
 LICENSE.txt
 MANIFEST.in
 README.md

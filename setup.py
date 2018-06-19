@@ -11,7 +11,7 @@ setup(
     author='eosmoto',
     license='GPL-3.0',
     packages=['eosiopy'],
-
+    include_package_data=True,
     install_requires=('requests', 'base58'),
     zip_safe=False,
     keywords=['eos', 'eosio', 'eosiopy', 'eospython', 'pythoneos', 'python eos', 'eos python'],

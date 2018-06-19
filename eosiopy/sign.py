@@ -26,7 +26,7 @@ def sign(wfi, trx):
     pri = bytes(pri)
     ll = ctypes.cdll.LoadLibrary
     try:
-        libuecc = pkg_resources.resource_filename("uECC")
+        libuecc = pkg_resources.resource_filename(__name__, "uECC.so")
     except:
         libuecc = './uECC.so'
 
@@ -60,7 +60,7 @@ def sign(wfi, trx):
         except:
             print("ddd")
     try:
-        librmd160 = pkg_resources.resource_filename("rmd160")
+        librmd160 = pkg_resources.resource_filename(__name__, "rmd160.so")
     except:
         librmd160 = './rmd160.so'
     librmd160 = ll(librmd160)
