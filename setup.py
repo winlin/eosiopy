@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import setup
+from distutils.core import setup, Extension
+
+uECC = Extension('uECC',["eosiopy/uECC.c"])
+rmd160=Extension('rmd160',["eosiopy/rmd160"])
+# moduleurmd160=Extension('rmd160',["eosiopy/rmd160.c"])
 
 VERSION = (0, 0, 6)
 __version__ = VERSION
@@ -18,7 +23,8 @@ setup(
     author='eosmoto',
     author_email="eosmoto@163.com",
     license='GPL-3.0',
-    package_data={'': ['*.so']},
+    package_data={'': ['*.so','*.c']},
+    ext_modules = [uECC],
     packages=['eosiopy'],
     include_package_data=True,
     install_requires=('requests', 'base58'),

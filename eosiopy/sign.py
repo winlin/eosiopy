@@ -4,7 +4,7 @@ from ctypes import *
 
 import base58
 import pkg_resources
-
+import uECC
 from eosiopy.exception import CantFindRecId
 from eosiopy.exception import IllegalKey
 
@@ -25,8 +25,9 @@ def sign(wfi, trx):
     trx = sha.digest()
     pri = bytes(pri)
     ll = ctypes.cdll.LoadLibrary
+    print(uECC_rmd160)
     try:
-        libuecc = pkg_resources.resource_filename(__name__, "uECC.so")
+        libuecc = pkg_resources.resource_filename(__name__, "uECC_rma160.so")
     except:
         libuecc = './uECC.so'
 
@@ -60,7 +61,7 @@ def sign(wfi, trx):
         except:
             print("ddd")
     try:
-        librmd160 = pkg_resources.resource_filename(__name__, "rmd160.so")
+        librmd160 = pkg_resources.resource_filename(__name__, "uECC_rma160.so")
     except:
         librmd160 = './rmd160.so'
     librmd160 = ll(librmd160)

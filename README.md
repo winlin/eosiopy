@@ -37,7 +37,6 @@ raw = RawinputParams("transfer", {
         "quantity": "20.0000 EOS",
         "to": "eosio"
     }, "eosio.token", "eosio.token@active")
-
 eosiop_arams=EosioParams(raw.params_actions_list,"5K7vdq9bEpTGZMryrc4LwcxeHAwMcrFuwskVujujpAfBoJwAo82")
 net=NodeNetwork.push_transaction(eosiop_arams.trx_json)
 print(net)
