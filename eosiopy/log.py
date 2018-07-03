@@ -16,5 +16,4 @@ def getLogger(name=None, filename=None):
     logger.setLevel(logging.DEBUG)
     logger.addHandler(fh)
     logger.addHandler(sh)
-
     return logger
