@@ -1,13 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from setuptools import setup
 from distutils.core import setup, Extension
 
 uECC = Extension('uECC',["eosiopy/uECC.c"])
-rmd160=Extension('rmd160',["eosiopy/rmd160"])
-# moduleurmd160=Extension('rmd160',["eosiopy/rmd160.c"])
-
-VERSION = (0, 0, 6)
+VERSION = (0, 0, 7)
 __version__ = VERSION
 __versionstr__ = '.'.join(map(str, VERSION))
 

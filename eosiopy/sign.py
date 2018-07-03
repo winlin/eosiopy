@@ -4,9 +4,15 @@ from ctypes import *
 
 import base58
 import pkg_resources
-import uECC
-from eosiopy.exception import CantFindRecId
+
+from eosiopy.exception import CantFindRecId, CantFindResInPack
 from eosiopy.exception import IllegalKey
+
+
+def get_res_path(name):
+    for i in pkg_resources.resource_listdir(__name__, "../"):
+        if i.find(name) >= 0:
+            return i
 
 
 def get_private_ket_by_wif(wif):
@@ -20,14 +26,14 @@ def get_private_ket_by_wif(wif):
 def sign(wfi, trx):
     pri = get_private_ket_by_wif(wfi)
     sha = hashlib.sha256(trx)
-    # c=base64.b64encode(pri)
-
     trx = sha.digest()
     pri = bytes(pri)
     ll = ctypes.cdll.LoadLibrary
-    print(uECC_rmd160)
     try:
-        libuecc = pkg_resources.resource_filename(__name__, "uECC_rma160.so")
+        if get_res_path("uECC"):
+            libuecc = pkg_resources.resource_filename(__name__, "../" + get_res_path("uECC.cpython"))
+        else:
+            raise CantFindResInPack
     except:
         libuecc = './uECC.so'
 
@@ -44,6 +50,7 @@ def sign(wfi, trx):
     recId = libuecc.uECC_sign_forbc(c_pri, c_trx, signature)
     if recId == -1:
         raise CantFindRecId
+    print(recId)
     bin = bytearray()
     binlen = 65 + 4
     headerBytes = recId + 27 + 4
@@ -53,23 +60,9 @@ def sign(wfi, trx):
     temp.extend(bin[0:65])
     temp.append(75)
     temp.append(49)
-    c_uint_array67 = c_uint8 * 67
-    c_temp = c_uint_array67(0)
-    for i in range(67):
-        try:
-            c_temp[i] = temp[i]
-        except:
-            print("ddd")
-    try:
-        librmd160 = pkg_resources.resource_filename(__name__, "uECC_rma160.so")
-    except:
-        librmd160 = './rmd160.so'
-    librmd160 = ll(librmd160)
-    c_uint_array20 = c_uint8 * 20
-    p = c_uint_array(0)
-    rmdhash = librmd160.RMD(c_temp, 67, p)
-
-    bin.extend(p[0:19])
+    rmd160 = hashlib.new("rmd160")
+    rmd160.update(temp)
+    bin.extend(rmd160.digest())
     sig = str(base58.b58encode(bytes(bin)))[2:-1]
     sig = "SIG_K1_" + sig
     return sig

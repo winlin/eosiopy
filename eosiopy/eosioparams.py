@@ -1,6 +1,7 @@
 import json
 import time
 
+from eosiopy import eosio_config
 from eosiopy.nodenetwork import NodeNetwork
 from eosiopy.packedtransaction import PackedTransaction
 from eosiopy.sign import sign
@@ -33,7 +34,7 @@ class EosioParams(object):
         self.info_block = NodeNetwork.get_info_block()
 
     def get_expiration(self):
-        return int(time.time() + 30)
+        return int(time.time() + eosio_config.expiration)
 
     def packed(self):
         self.params["packed_trx"] = PackedTransaction(self.params, self.info_block["chain_id"])
