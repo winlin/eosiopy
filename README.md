@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/eosmoto/eosiopy.svg?branch=master)](https://travis-ci.org/eosmoto/eosiopy)
 # About/关于
 
 **EosioPy** is a python EOS tool,which is developed by EosMoto
