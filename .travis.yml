@@ -16,6 +16,7 @@ deploy:
   provider: pypi
   user: bitjoin
   password: $PASSWORD
+  skip_cleanup: true
   on:
     tags: true
 env:
