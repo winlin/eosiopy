@@ -12,6 +12,8 @@ install:
 - pip install -r requirements.txt
 script:
 - cd docker && ./run_tests.sh
+before_deploy:
+- cd ~/
 deploy:
   provider: pypi
   user: bitjoin
