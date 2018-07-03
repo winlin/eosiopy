@@ -13,7 +13,7 @@ install:
 script:
 - cd docker && ./run_tests.sh
 before_deploy:
-- cd ~/
+- cd ~/build/eosmoto/eosiopy
 - ls
 deploy:
   provider: pypi
