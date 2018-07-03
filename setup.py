@@ -3,7 +3,7 @@
 from distutils.core import setup, Extension
 
 uECC = Extension('uECC',["eosiopy/uECC.c"])
-VERSION = (0, 1, 0)
+VERSION = (0, 1, 1)
 __version__ = VERSION
 __versionstr__ = '.'.join(map(str, VERSION))
 
