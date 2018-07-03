@@ -14,10 +14,10 @@ script:
 - cd docker && ./run_tests.sh
 deploy:
   provider: pypi
-  user: eosmoto@163.com
+  user: bitjoin
   password: $PASSWORD
   on:
-    tag: up
+    tags: true
 env:
   global:
   - secure: uhRjE7lXjXFhg1RsSCH9W8bLqD68OLuYSSJ/e7YflRcPzkkLzE/WHOj32XKiZOMBxM3voc8ySdWyEChIOWFgRYDGJy2wCYS6OTR/ngPMfzXijsWKupNfELva+3zeTUEinl6zObHYP4GIfwbj57o3q9n3gjdnoec5rwPDFBt3eQohCKJV1ZNFDVIYXuak5UUuUUQTm+SejQ+taeW0udXiJfSZj752hubCsqEZFSvW0xDJ8ZgKggqwedSjgN67t0b3g6mLd64v7Q9oj9nhJ37+w1YryCeaFhnPFLkkznCUHmLBGht8C7pqOwjAsD3SOtp1OQSgqLkb8oSBJnUTcRGGI6N6ips8bD1K2tLIkQNPxJdSU0Nd6xQZ4mKDaJoRboX7epGJOxKC6sirbNUZG2Nknzu+h4ABrxavGT8VdI8m+KsclMKw0ra/mcCOJxn4GoG5Mxch7sSeLzdMYq+yIKMjKg/oeYkAL4e7IEwQcFpjWAz1I9RAaD9DXUBIMGfAYnILAWjLKfy2xh4gcTG4L6u9iZof9pbqCZkMq6xhoHC9xMcHZNtTu1QZCEFjnG4ExNlkFqURqi8wJRHBeTQfZ+602wgN0IktlW2MlCyfiklBZ5MxCkUoD5AQctXdhuzsluHWwRyjyndyjkxz8rRxtQ/V2BQlMrG2xcO4LFAN6uF44Ps=
