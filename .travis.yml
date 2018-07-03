@@ -13,6 +13,7 @@ install:
 script:
 - cd docker && ./run_tests.sh
 before_deploy:
+- ls
 - cd ~/build/eosmoto/eosiopy
 - ls
 deploy:
@@ -21,6 +22,8 @@ deploy:
   password: $PASSWORD
   skip_cleanup: true
   on:
+    branch: master
+    python: '3.6'
     tags: true
 env:
   global:
