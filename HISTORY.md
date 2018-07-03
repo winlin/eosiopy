@@ -2,10 +2,26 @@
 
 Release History
 ---------------
+v0.1.0 (2018-07-03)
+
++++++++++++++++++++
+
+**Bugfixes**
+
+- Add multi-system support
 
 
+**Features**
 
-0.0.4 (2018-06-15)
+- Add ci
+
+**Improvements**
+
+- change Rmd160 to use haslib
+
+
+v0.0.4 (2018-06-15)
+
 +++++++++++++++++++
 
 **Bugfixes**
