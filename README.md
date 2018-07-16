@@ -6,7 +6,18 @@
 **EosioPy**是一个python eos工具集合。
 
 -------------------------------
+## Donation/捐献
+If this project help you reduce time to develop, you can give me a cup of coffee :) 
 
+如果这个项目帮助你减少开发时间,你可以给我一杯咖啡:) 
+
+- [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/gaojinfeng)
+- [Donate via Wechat/微信](https://xcx.yibangbang99.com/media/weixin.jpg)
+- [Donate via Alipay/支付宝](https://xcx.yibangbang99.com/media/zhifubao.jpg)
+- Donate via Bitcoin: 1Kptw5HQYPrWVPe7Z9AAF9kHRgD4iGmwVy
+- Donate via Bitcoin Cash: 1Kptw5HQYPrWVPe7Z9AAF9kHRgD4iGmwVy
+- Donate via ETH: 0xd80f6cd8ed61c3b4db0c8709bf168bef9faeaed3
+- Donate via EOS: flyingflying
 
 
 ### Installation/安装
@@ -113,6 +124,10 @@ eosiop_arams=EosioParams(﻿params,"5K7vdq9bEpTGZMryrc4LwcxeHAwMcrFuwskVujujpAfB
 net=NodeNetwork.push_transaction(eosiop_arams.trx_json)
 print(net)
 ```
+
+
+
+
 ###LICENSE/版权
 
 **License**
