@@ -3,7 +3,7 @@
 from distutils.core import setup, Extension
 
 uECC = Extension('uECC',["eosiopy/uECC.c"])
-VERSION = (0, 1, 2)
+VERSION = (0, 1, 3)
 __version__ = VERSION
 __versionstr__ = '.'.join(map(str, VERSION))
 
@@ -19,7 +19,7 @@ setup(
     author='eosmoto',
     author_email="eosmoto@163.com",
     license='GPL-3.0',
-    package_data={'': ['*.so','*.c']},
+    package_data={'': ['*.so', '*.c', '*.h']},
     ext_modules = [uECC],
     packages=['eosiopy'],
     include_package_data=True,
