@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
+# coding:utf-8
 
 from distutils.core import setup, Extension
 
 uECC = Extension('uECC',["eosiopy/uECC.c"])
-VERSION = (0, 1, 3)
+VERSION = (0, 1, 4)
 __version__ = VERSION
 __versionstr__ = '.'.join(map(str, VERSION))
 
