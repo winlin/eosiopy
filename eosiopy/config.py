@@ -7,6 +7,7 @@ class EosioConfig(object):
         self.port = port
         self.MAX_NAME_IDX = 12
         self.expiration = 30
+        self.verify = True
         for k, v in eosio_api_dict.items():
             setattr(self, k, v)
 
