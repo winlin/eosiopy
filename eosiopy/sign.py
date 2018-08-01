@@ -50,7 +50,6 @@ def sign(wfi, trx):
     recId = libuecc.uECC_sign_forbc(c_pri, c_trx, signature)
     if recId == -1:
         raise CantFindRecId
-    print(recId)
     bin = bytearray()
     binlen = 65 + 4
     headerBytes = recId + 27 + 4
