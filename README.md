@@ -77,6 +77,7 @@ You can change the default node address before sending the request (default is 1
 from eosiopy import eosio_config
 eosio_config.url="http://127.0.0.1"
 eosio_config.port=8888
+eosio_config.verify=True
 ```
 你可以在发送请求之前更改默认的节点地址(默认是 127.0.0.1:8888)
 
