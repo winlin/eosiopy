@@ -61,7 +61,7 @@ def sign(wfi, trx):
     temp.append(49)
     rmd160 = hashlib.new("rmd160")
     rmd160.update(temp)
-    bin.extend(rmd160.digest())
+    bin.extend(rmd160.digest()[:4])
     sig = str(base58.b58encode(bytes(bin)))[2:-1]
     sig = "SIG_K1_" + sig
     return sig
