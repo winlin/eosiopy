@@ -5,5 +5,6 @@ eosio_api_dict = {
     "abi_json_to_bin": "/v1/chain/abi_json_to_bin",
     "get_account": "/v1/chain/get_account",
     "get_accounts": "/v1/history/get_key_accounts",
-    "get_currency_balance": "/v1/chain/get_currency_balance"
+    "get_currency_balance": "/v1/chain/get_currency_balance",
+    "get_table_rows": "/v1/chain/get_table_rows"
 }

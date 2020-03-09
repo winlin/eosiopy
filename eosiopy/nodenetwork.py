@@ -50,3 +50,25 @@ class NodeNetwork(object):
     def get_currency_balance(json_data):
         res = requests.post(eosio_config.url_port + eosio_config.get_currency_balance, json=json_data)
         return res.json()
+
+    @staticmethod
+    def get_table_rows(json_data):
+        default_data = {
+            "json": True,
+            "code": "",
+            "scope": "",
+            "table": "",
+            "table_key": "",
+            "lower_bound": "",
+            "upper_bound": "",
+            "limit": 10,
+            "key_type": "",
+            "index_position": "",
+            "encode_type": "dec",
+            "reverse": False,
+            "show_payer": False
+            }
+        default_data.update(json_data)
+        res = requests.post(eosio_config.url_port + eosio_config.get_table_rows,
+                            json=default_data)
+        return res.json()

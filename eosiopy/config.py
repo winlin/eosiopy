@@ -2,7 +2,7 @@ from eosiopy.eosioapi import eosio_api_dict
 
 
 class EosioConfig(object):
-    def __init__(self, url="http://127.0.0.1", port=8888):
+    def __init__(self, url="http://127.0.0.1", port=None):
         self.url = url
         self.port = port
         self.MAX_NAME_IDX = 12
@@ -18,7 +18,9 @@ class EosioConfig(object):
 
     @property
     def url_port(self):
-        return self.url + ":" + str(self.port)
+        if self.port:
+            return self.url + ":" + str(self.port)
+        return self.url
 
 
 eosio_config = EosioConfig()

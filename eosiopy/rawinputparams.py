@@ -36,7 +36,10 @@ class RawinputParams(object):
         return self
 
     def get_bin(self, json_data):
-        return NodeNetwork.json_to_abi(json_data=json_data)["binargs"]
+        ret = NodeNetwork.json_to_abi(json_data=json_data)
+        if 'binargs' not in ret:
+            raise Exception(str(ret))
+        return ret["binargs"]
 
 
 
